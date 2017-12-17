@@ -26,7 +26,7 @@ class TasksDB:
 
     def add_task(self, task_text, task_location):
         self._cur.execute('''INSERT INTO tasks (task_id, task_text, task_location, worker_id, task_status) VALUES 
-                            (''' + self._generate_task_id() + ', ' + task_text + ', ' + task_location + ', ' + '0' + ', ' + '0' + ')')
+                            (''' + self._generate_task_id() + ', ' + '''"''' + task_text + '''"''' + ', ' + '''"''' + task_location + '''"''' + ', ' + '0' + ', ' + '0' + ')')
 
     def change_task_status(self, task_id, task_status):
         self._cur.execute('''
